@@ -1,0 +1,14 @@
+<!doctype HTML>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>{% block title %}My App{% endblock %}</title>
+  </head>
+  <body>
+    <div class="container">
+      {% block body %}{% endblock %}
+    </div>
+    {% block pagescripts %}{% endblock %}
+  </body>
+</html>
