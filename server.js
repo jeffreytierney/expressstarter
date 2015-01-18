@@ -65,8 +65,11 @@ app.use(session({
     secret: settings.COOKIE_SECRET,
     unset: 'destroy'
 }));
+
+/* TODO START: (add oauth details and uncomment)
 app.use(passport.initialize());
 app.use(passport.session());
+*/
 
 app.use(csrf());
 //app.use(csrf({cookie:true}));
