@@ -13,7 +13,10 @@ var routing_table = [
 ];
 
 var api_routing_table = [
-];
+].map(function(route) {
+  if(!route.response_format) { route.response_format = 'json'; }
+  return route;
+});
 
 var admin_routing_table = [
 ];

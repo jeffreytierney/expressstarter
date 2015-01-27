@@ -25,6 +25,11 @@ function setRoutes(server, route_obj) {
     if(route_obj.add_csrf) {
       route_actions.push(addCSRF);
     }
+    if(route_obj.response_format) {
+      if(route_obj.response_format === "json") {
+        route_actions.push(setJSON);
+      }
+    }
     if(route_obj[verb].length && route_obj[verb].slice) { // ghetto array check
       route_actions = route_actions.concat(route_obj[verb]);
     } else {
@@ -54,6 +59,11 @@ function addCSRF(req, res, next) {
     console.log ('no csrftoken method');
   }
   //console.log(res.cookies._csrf)
+  next();
+}
+
+function setJSON(req, res, next) {
+  res.set('Content-Type', 'application/json; charset=utf-8');
   next();
 }
 
